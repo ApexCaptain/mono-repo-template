@@ -5,9 +5,6 @@
       "description": "Full release build",
       "steps": [
         {
-          "spawn": "default"
-        },
-        {
           "spawn": "pre-compile"
         },
         {
@@ -37,9 +34,6 @@
       "steps": [
         {
           "builtin": "release/bump-version"
-        },
-        {
-          "exec": "lerna run bump --stream"
         }
       ],
       "condition": "! git log --oneline -1 | grep -q \"chore(release):\""
@@ -72,9 +66,6 @@
         },
         {
           "say": "ready to rock! (unpushed commits are under the \"scratch\" branch)"
-        },
-        {
-          "exec": "lerna run clobber --stream"
         }
       ],
       "condition": "git diff --exit-code > /dev/null"
@@ -84,21 +75,13 @@
       "description": "Only compile",
       "steps": [
         {
-          "exec": "lerna run compile --stream"
+          "exec": "tsc --build"
         }
       ]
     },
     "default": {
       "name": "default",
-      "description": "Synthesize project files",
-      "steps": [
-        {
-          "exec": "ts-node --skip-project .projenrc.ts"
-        },
-        {
-          "exec": "lerna run default --stream"
-        }
-      ]
+      "description": "Synthesize project files"
     },
     "eject": {
       "name": "eject",
@@ -109,97 +92,53 @@
       "steps": [
         {
           "spawn": "default"
-        },
+        }
+      ]
+    },
+    "eslint": {
+      "name": "eslint",
+      "description": "Runs eslint against the codebase",
+      "steps": [
         {
-          "exec": "lerna run eject --stream"
+          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test build-tools .projenrc.js"
         }
       ]
     },
     "package": {
       "name": "package",
-      "description": "Creates the distribution package",
-      "steps": [
-        {
-          "exec": "mkdir -p dist/js"
-        },
-        {
-          "exec": "lerna run package --stream"
-        },
-        {
-          "exec": "lerna-projen copy-dist projects/backend/dist dist"
-        }
-      ]
+      "description": "Creates the distribution package"
     },
     "post-compile": {
       "name": "post-compile",
-      "description": "Runs after successful compilation",
-      "steps": [
-        {
-          "exec": "lerna run post-compile --stream"
-        }
-      ]
+      "description": "Runs after successful compilation"
     },
     "post-upgrade": {
       "name": "post-upgrade",
-      "description": "Runs after upgrading dependencies",
-      "steps": [
-        {
-          "exec": "lerna run upgrade --stream"
-        },
-        {
-          "exec": "npx projen"
-        },
-        {
-          "exec": "lerna run post-upgrade --stream"
-        }
-      ]
+      "description": "Runs after upgrading dependencies"
     },
     "pre-compile": {
       "name": "pre-compile",
-      "description": "Prepare the project for compilation",
-      "steps": [
-        {
-          "exec": "lerna run pre-compile --stream"
-        },
-        {
-          "exec": "lerna-projen clean-dist dist"
-        }
-      ]
-    },
-    "release": {
-      "name": "release",
-      "description": "Prepare a release from \"main\" branch",
-      "env": {
-        "RELEASE": "true",
-        "MAJOR": "1"
-      },
-      "steps": [
-        {
-          "exec": "rm -fr dist"
-        },
-        {
-          "spawn": "bump"
-        },
-        {
-          "spawn": "build"
-        },
-        {
-          "spawn": "unbump"
-        },
-        {
-          "exec": "git diff --ignore-space-at-eol --exit-code"
-        },
-        {
-          "exec": "lerna run release --stream"
-        }
-      ]
+      "description": "Prepare the project for compilation"
     },
     "test": {
       "name": "test",
       "description": "Run tests",
       "steps": [
         {
-          "exec": "lerna run test --stream"
+          "exec": "jest --passWithNoTests --updateSnapshot",
+          "receiveArgs": true
+        },
+        {
+          "spawn": "eslint"
+        }
+      ]
+    },
+    "test:watch": {
+      "name": "test:watch",
+      "description": "Run jest in watch mode",
+      "steps": [
+        {
+          "exec": "jest --watch"
         }
       ]
     },
@@ -216,9 +155,6 @@
       "steps": [
         {
           "builtin": "release/reset-version"
-        },
-        {
-          "exec": "lerna run unbump --stream"
         }
       ]
     },
@@ -233,19 +169,19 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='lerna'"
+          "exec": "npm-check-updates --dep dev --upgrade --target=minor"
         },
         {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='lerna'"
+          "exec": "npm-check-updates --dep optional --upgrade --target=minor"
         },
         {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='lerna'"
+          "exec": "npm-check-updates --dep peer --upgrade --target=minor"
         },
         {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='lerna'"
+          "exec": "npm-check-updates --dep prod --upgrade --target=minor"
         },
         {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='lerna'"
+          "exec": "npm-check-updates --dep bundle --upgrade --target=minor"
         },
         {
           "exec": "yarn install --check-files"
@@ -258,6 +194,15 @@
         },
         {
           "spawn": "post-upgrade"
+        }
+      ]
+    },
+    "watch": {
+      "name": "watch",
+      "description": "Watch & compile in the background",
+      "steps": [
+        {
+          "exec": "tsc --build -w"
         }
       ]
     }

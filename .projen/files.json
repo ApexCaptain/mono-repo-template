@@ -9,9 +9,12 @@
     ".gitignore",
     ".mergify.yml",
     ".npmignore",
+    ".prettierignore",
+    ".prettierrc.json",
     ".projen/deps.json",
     ".projen/files.json",
     ".projen/tasks.json",
+    ".vscode/settings.json",
     "lerna.json",
     "LICENSE"
   ],
