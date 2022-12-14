@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  workspace:
+    container_name: apex_captain_mono_repo_template_devcon_workspace
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        NODE_VERSION: 16
+        NPM_VERSION: 9.2.0
+
+    volumes:
+      - ..:/workspace:cached
+      - ApexCaptain-MonoRepoTemplate-WorkSpace-node_mnodules:/workspace/node_modules
+
+    command: sleep infinity
+    user: node
+
+volumes:
+  ApexCaptain-MonoRepoTemplate-WorkSpace-node_mnodules:

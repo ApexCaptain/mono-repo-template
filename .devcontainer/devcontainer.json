@@ -1,0 +1,13 @@
+{
+  "name": "ApexCaptain MonoRepoTemplate Dev Container",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "workspace",
+  "workspaceFolder": "/workspace",
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "hoovercj.vscode-power-mode",
+    "esbenp.prettier-vscode"
+  ],
+  "postCreateCommand": "sudo chown node node_modules"
+}
