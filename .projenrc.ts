@@ -8,6 +8,7 @@ const subProjectRootDirPath = 'projects';
 const npmRegistryUrl = 'https://npm.pkg.github.com/';
 
 const rootProject = new LernaProject({
+  release: false,
   defaultReleaseBranch,
   devDeps: ['lerna-projen'],
   name: '@apexcaptain/mono-repo-template',
