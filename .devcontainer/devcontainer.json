@@ -7,7 +7,9 @@
     "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
     "hoovercj.vscode-power-mode",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "wayou.vscode-todo-highlight",
+    "vscjava.vscode-java-pack"
   ],
   "postCreateCommand": "sudo chown node node_modules"
 }

@@ -3,3 +3,7 @@ export class Hello {
     return 'hello, world!';
   }
 }
+
+export class Some<T> {
+  constructor(public a: T) {}
+}
