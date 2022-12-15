@@ -19,6 +19,11 @@ const rootProject = new LernaProject({
       run: 'yarn projen',
     },
   ],
+  depsUpgradeOptions: {
+    workflowOptions: {
+      branches: ['develop'],
+    },
+  },
   prettier: true,
   prettierOptions: {
     settings: {
