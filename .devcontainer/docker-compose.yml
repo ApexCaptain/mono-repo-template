@@ -1,4 +1,4 @@
-version: "3.8"
+version: '3.8'
 
 services:
   workspace:
@@ -13,6 +13,9 @@ services:
     volumes:
       - ..:/workspace:cached
       - ApexCaptain-MonoRepoTemplate-WorkSpace-node_mnodules:/workspace/node_modules
+
+    env_file: 
+      - env/devcontainer.github-secrets.env
 
     command: sleep infinity
     user: node

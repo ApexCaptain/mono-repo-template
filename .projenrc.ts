@@ -2,6 +2,7 @@ import { LernaProject } from 'lerna-projen';
 import { javascript, JsonFile } from 'projen';
 import { TypeScriptAppProject } from 'projen/lib/typescript';
 import path from 'path';
+import { GithubCredentials } from 'projen/lib/github';
 
 const defaultReleaseBranch = 'main';
 const subProjectRootDirPath = 'projects';
@@ -34,6 +35,7 @@ const rootProject = new LernaProject({
       trailingComma: javascript.TrailingComma.ALL,
     },
   },
+  gitignore: ['env'],
 });
 
 const nestBackendProject = new TypeScriptAppProject({
