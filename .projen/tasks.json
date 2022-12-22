@@ -52,9 +52,6 @@
         },
         {
           "say": "ready to rock! (unpushed commits are under the \"scratch\" branch)"
-        },
-        {
-          "exec": "lerna run clobber --stream"
         }
       ],
       "condition": "git diff --exit-code > /dev/null"
@@ -134,9 +131,6 @@
         },
         {
           "exec": "npx projen"
-        },
-        {
-          "exec": "lerna run post-upgrade --stream"
         }
       ]
     },
@@ -145,10 +139,10 @@
       "description": "Prepare the project for compilation",
       "steps": [
         {
-          "exec": "lerna run pre-compile --stream"
+          "exec": "lerna-projen clean-dist dist"
         },
         {
-          "exec": "lerna-projen clean-dist dist"
+          "exec": "lerna run pre-compile --stream"
         }
       ]
     },
@@ -157,7 +151,23 @@
       "description": "Run tests",
       "steps": [
         {
+          "exec": "jest --passWithNoTests --updateSnapshot",
+          "receiveArgs": true
+        },
+        {
           "exec": "lerna run test --stream"
+        }
+      ]
+    },
+    "test:watch": {
+      "name": "test:watch",
+      "description": "Run jest in watch mode",
+      "steps": [
+        {
+          "exec": "jest --watch"
+        },
+        {
+          "exec": "lerna run test:watch --stream"
         }
       ]
     },

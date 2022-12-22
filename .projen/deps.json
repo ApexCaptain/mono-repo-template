@@ -1,6 +1,15 @@
 {
   "dependencies": [
     {
+      "name": "jest",
+      "type": "build"
+    },
+    {
+      "name": "jest-junit",
+      "version": "^13",
+      "type": "build"
+    },
+    {
       "name": "lerna-projen",
       "type": "build"
     },
