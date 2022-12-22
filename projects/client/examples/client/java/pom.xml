@@ -101,13 +101,11 @@
             <groupId>com.github.ApexCaptain</groupId>
             <artifactId>mono-repo-template-client</artifactId>
             <version>0.0.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/../../../dist/java/com/github/ApexCaptain/mono-repo-template-client/0.0.0/mono-repo-template-client-0.0.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>io.github.cdklabs</groupId>
             <artifactId>projen</artifactId>
-            <version>0.65.59</version>
+            <version>0.65.70</version>
             <scope>test</scope>
         </dependency>
         <dependency>
