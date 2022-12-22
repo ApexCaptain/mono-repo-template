@@ -135,7 +135,7 @@ void (async () => {
   // Modify VsCode
   {
     const vsCode = new VsCode(rootProject);
-    const flately = <TargetType, ResultType>(
+    const flatley = <TargetType, ResultType>(
       target: TargetType,
       opts?: {
         coercion?: {
@@ -159,11 +159,11 @@ void (async () => {
     // Add vscode settings
 
     vsCode.settings.addSettings(
-      flately(
+      flatley(
         {
           eslint: {
             workingDirectories: new VsCodeSettingObject(
-              Object.values<Project>(rootProject['subProjects']).map(
+              Object.values<Project>(rootProject['subprojects']).map(
                 (eachSubProject) =>
                   path.relative(rootProject.outdir, eachSubProject.outdir),
               ),
