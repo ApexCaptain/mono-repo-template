@@ -4494,10 +4494,10 @@ latest-version@^7.0.0:
   dependencies:
     package-json "^8.1.0"
 
-lerna-projen@^0.0.358:
-  version "0.0.358"
-  resolved "https://registry.yarnpkg.com/lerna-projen/-/lerna-projen-0.0.358.tgz#b4892532f65ab6dee402d07ab511f778ffac6e51"
-  integrity sha512-wkFjqnMpzdH5ZMbYXo+uAYAhNqCjD0HkWz7InK/RvMXd7KhorkLgeVEA+QWRn9HqCNtecwwup3W3rO8iXi+LeQ==
+lerna-projen@^0.0.359:
+  version "0.0.359"
+  resolved "https://registry.yarnpkg.com/lerna-projen/-/lerna-projen-0.0.359.tgz#83f88548300c5a5d16151c88cbec62aa47432547"
+  integrity sha512-KasMUvXNBBoS7Ec8C4WZWmMvESAwQCuVk+8CkVwuiuF5+u/+fvVS5DYSBIj9W2mcMeYgvNyLVBRNKK2i0r0w6g==
   dependencies:
     commander "^6.2.1"
     fs-extra "^9.1.0"
@@ -5709,10 +5709,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.65.73:
-  version "0.65.73"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.65.73.tgz#9ac83ed9eafb39319f9d035cd74d412ee029f64d"
-  integrity sha512-WNNFe5ROoB59LShUiq6SZbwKffgCcp1RUfzAolcAyOVmxa69nxnenyH2OpN5y6ImVqgURFtYDxdPFjKpe7gPhQ==
+projen@^0.65.74:
+  version "0.65.74"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.65.74.tgz#de092cb4350518a4af100bd917ab08bc9620e4c0"
+  integrity sha512-704J8NxYoy9gcUoJxYupogi9xGP9nG7XjfUj6q7D5pszwq7godRmWUH5CjJ9NoxPkDebt8cS02zfY5DIPx/s6Q==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
