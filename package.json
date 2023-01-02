@@ -19,16 +19,16 @@
     "jest": "^29.3.1",
     "jest-junit": "^13",
     "lerna": "5",
-    "lerna-projen": "^0.0.359",
+    "lerna-projen": "^0.0.363",
     "npm-check-updates": "^16",
     "prettier": "^2.8.1",
-    "projen": "^0.65.74",
+    "projen": "^0.65.78",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
   },
   "dependencies": {
     "@types/flat": "^5.0.2",
-    "@types/jest": "^29.2.4",
+    "@types/jest": "^29.2.5",
     "camel-case": "^4.1.2",
     "flatley": "^5.2.0"
   },
