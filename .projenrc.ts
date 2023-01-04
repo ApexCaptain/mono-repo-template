@@ -42,6 +42,7 @@ const rootProject = new LernaProject({
   ],
   depsUpgradeOptions: {
     workflowOptions: {
+      schedule: javascript.UpgradeDependenciesSchedule.WEEKLY,
       branches: ['develop'],
     },
   },
